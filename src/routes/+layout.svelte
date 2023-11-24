@@ -71,7 +71,7 @@
 <Toaster />
 
 <div class="fixed top-0 inset-x-0 z-30">
-	<div class="relative bg-black/60 border-b-white/20 backdrop-blur">
+	<div class="relative bg-black/70 border-b-white/20 backdrop-blur-lg">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6">
 			<div class="flex justify-between items-center py-4">
 				<div class="flex justify-start">
