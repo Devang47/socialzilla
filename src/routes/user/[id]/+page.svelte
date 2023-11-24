@@ -190,7 +190,7 @@
 			Total friends: {profile?.followers}
 		</div>
 
-		<div class="w-fit mx-auto">
+		<div class="w-fit mx-auto mt-10">
 			<canvas bind:this={canvasEl}> </canvas>
 		</div>
 

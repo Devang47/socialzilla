@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
 	import Modal from '$lib/components/Modal.svelte';
+	import { isLoading } from '$lib/stores';
 	import type { SupabaseClient } from '@supabase/supabase-js';
 	import toast from 'svelte-french-toast';
 
@@ -17,6 +18,7 @@
 		if (!userData) return toast('You need to login to continue this action!');
 
 		loading = true;
+		$isLoading = true;
 		if (!content.trim()) {
 			formError = 'No content';
 			loading = false;
@@ -44,6 +46,7 @@
 			user_id: userData.id
 		});
 
+		$isLoading = false;
 		loading = false;
 		content = '';
 

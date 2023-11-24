@@ -41,12 +41,12 @@
 </svelte:head>
 
 <section id="products" class="mt-12">
-	<div class="container mx-auto w-10/12 max-w-[1100px] py-10 md:py-20">
-		<h2 class="text-left text-2xl font-bold underline-offset-4 lg:text-3xl lg:underline-offset-8">
+	<div class="container w-fit mx-auto py-10 md:py-20">
+		<h2 class="text-center text-2xl font-bold underline-offset-4 lg:text-3xl lg:underline-offset-8">
 			Login to <span
 				class="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600"
 				>Socialzilla
-			</span>:
+			</span>
 		</h2>
 		<div class="col-8 form-widget mt-10 max-w-sm">
 			<div class="">

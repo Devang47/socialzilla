@@ -1,7 +1,8 @@
 #user-data {
 	@apply mt-[60px] pb-20;
 	.banner {
-		@apply w-full h-[160px] relative opacity-40;
+		@apply w-full h-[160px] relative;
+		filter: brightness(0.3);
 
 		img {
 			@apply w-full h-full object-cover;
@@ -9,7 +10,7 @@
 	}
 
 	.dp {
-		@apply mx-auto rounded-full -mt-16 w-32 h-32 overflow-hidden relative z-10;
+		@apply mx-auto rounded-full -mt-16 w-32 md:w-44 h-32 md:h-44 overflow-hidden relative z-10;
 
 		img {
 			@apply w-full h-full object-cover;

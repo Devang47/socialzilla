@@ -23,6 +23,6 @@
 	}
 
 	.modal {
-		@apply px-8 py-5 bg-neutral-800 rounded-xl w-fit h-fit min-h-[300px];
+		@apply px-8 py-5 bg-neutral-800 border border-white/20 bg-black/50 backdrop-blur rounded-xl w-fit h-fit min-h-[300px];
 	}
 </style>

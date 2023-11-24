@@ -2,7 +2,7 @@
 	@apply flex items-center justify-center overflow-y-scroll px-5 py-4 mt-6 flex-col gap-10 pb-10 relative z-10;
 
 	.post {
-		@apply rounded-[13px] bg-[#323236] px-6 sm:px-[2.5rem] py-4 pt-6 relative;
+		@apply rounded-[13px] border border-white/20 bg-black/50 backdrop-blur px-5 sm:px-7 py-3 relative;
 		box-shadow:
 			0px 15px 18px rgba(0, 0, 0, 0.14),
 			0px 6.26664px 7.51997px rgba(0, 0, 0, 0.10064),
