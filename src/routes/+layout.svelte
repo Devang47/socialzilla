@@ -98,7 +98,7 @@
 				<div
 					class={clsx(
 						openMobileMenu
-							? 'fixed inset-0 bg-black/90 backdrop-blur-md flex flex-col items-center justify-start pt-32 gap-4 md:relative md:flex-row'
+							? 'fixed h-screen w-screen inset-0 bg-black/90 backdrop-blur-md flex flex-col items-center justify-start pt-32 gap-4 md:relative md:flex-row'
 							: 'hidden',
 						'md:flex-row md:flex md:justify-between md:w-full md:pl-20'
 					)}
@@ -175,12 +175,14 @@
 						{:else}
 							<a
 								href={`/user/${userData?.username}`}
+								on:click={() => (openMobileMenu = false)}
 								class="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-semibold text-white bg-neutral-800"
 							>
 								Account
 							</a>
 							<a
 								href="/logout"
+								on:click={() => (openMobileMenu = false)}
 								class="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-semibold text-white bg-purple-600 hover:bg-purple-700"
 							>
 								Logout
