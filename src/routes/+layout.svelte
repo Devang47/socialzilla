@@ -49,11 +49,11 @@
 		const { data: users } = await supabase
 			.from('users')
 			.select()
-			.like('username', `%${searchInput}%`);
+			.like('username', `%${searchInput.toLowerCase()}%`);
 		const { data: posts } = await supabase
 			.from('posts')
 			.select()
-			.like('content', `%${searchInput}%`);
+			.like('content', `%${searchInput.toLowerCase()}%`);
 		searchResults = [...(users || []), ...(posts || [])];
 	};
 	let searchBoxOpen = false;
@@ -177,17 +177,12 @@
 								Login
 							</a>
 						{:else}
-							<!-- <div class="font-medium px-4">
-							{userData?.username ?? session.user.email}
-						</div> -->
-						{/if}
-						<a
-							href={`/user/${userData?.username}`}
-							class="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-neutral-800"
-						>
-							Account
-						</a>
-						{#if session}
+							<a
+								href={`/user/${userData?.username}`}
+								class="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-neutral-800"
+							>
+								Account
+							</a>
 							<a
 								href="/logout"
 								class="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-600 hover:bg-purple-700"

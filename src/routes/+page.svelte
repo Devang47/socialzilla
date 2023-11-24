@@ -54,7 +54,8 @@
 			</div>
 		{/if}
 
-		<div class="posts">
+		<h3 class="px-4 text-left mt-10 font-medium">Latest posts on Socialzilla:</h3>
+		<div class="posts !mt-4">
 			{#each posts as post}
 				{#await getAuthorDetails(supabase, post.user_id) then data}
 					<Post
