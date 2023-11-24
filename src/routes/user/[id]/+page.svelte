@@ -61,7 +61,7 @@
 				.eq('id', profile.id);
 
 			supabase.from('follows').delete().match({
-				follower: userData.id,
+				follower: userData?.id,
 				user: profile.id
 			});
 		} else {
@@ -76,7 +76,7 @@
 				.eq('id', profile.id);
 
 			supabase.from('follows').insert({
-				follower: userData.id,
+				follower: userData?.id,
 				user: profile.id
 			});
 		}
@@ -145,7 +145,7 @@
 		</div>
 
 		<div class="dp">
-			{#if profile.id === userData.id}
+			{#if userData && profile.id === userData?.id}
 				<label class="cursor-pointer" for="profile-pic">
 					<input
 						disabled={loading}
@@ -194,11 +194,11 @@
 			<canvas bind:this={canvasEl}> </canvas>
 		</div>
 
-		{#if isFollowLoading}
+		{#if userData && isFollowLoading}
 			<Button className="mx-auto mt-6">
 				<LoadingIcon />
 			</Button>
-		{:else if profile.id != userData.id}
+		{:else if userData && profile.id != userData.id}
 			<Button className="mx-auto mt-6" on:click={handleChangeInFollow}>
 				{#if isFollowedByUser}
 					<svg xmlns="http://www.w3.org/2000/svg" width="14" viewBox="0 0 30 30">

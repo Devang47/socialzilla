@@ -2,6 +2,7 @@
 	import Button from '$lib/components/Button.svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import type { SupabaseClient } from '@supabase/supabase-js';
+	import toast from 'svelte-french-toast';
 
 	export let supabase: SupabaseClient;
 	export let userData: any;
@@ -13,6 +14,8 @@
 	let loading = false;
 
 	const handleCreatePost = async () => {
+		if (!userData) return toast('You need to login to continue this action!');
+
 		loading = true;
 		if (!content.trim()) {
 			formError = 'No content';

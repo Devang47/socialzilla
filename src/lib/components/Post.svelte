@@ -8,6 +8,7 @@
 	import { isLoading } from '$lib/stores';
 	import type { Session, SupabaseClient } from '@supabase/supabase-js';
 	import clsx from 'clsx';
+	import toast from 'svelte-french-toast';
 
 	export let openComments: (id: string) => void;
 	export let supabase: SupabaseClient;
@@ -25,18 +26,22 @@
 	export let handleDeletepost: (id: string) => void;
 
 	let optionsMenuOpen = false;
-	let likedByUser: boolean;
+	let likedByUser: boolean = false;
 	onMount(async () => {
+		if (!userData) return;
+
 		const { data: likesData } = await supabase
 			.from('likes')
 			.select()
-			.eq('user_id', userData.id)
+			.eq('user_id', userData?.id)
 			.eq('post_id', data.id);
 
 		likedByUser = (likesData ?? [])?.length > 0 ? true : false;
 	});
 
 	const likepost = async () => {
+		if (!userData) return toast('You need to login to continue this action!');
+
 		likedByUser = !likedByUser;
 
 		if (!likedByUser) {
@@ -50,7 +55,7 @@
 					})
 					.eq('id', data.id),
 				supabase.from('likes').delete().match({
-					user_id: userData.id,
+					user_id: userData?.id,
 					post_id: data.id
 				})
 			]);

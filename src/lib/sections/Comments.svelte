@@ -6,6 +6,7 @@
 	import { getAuthorDetails } from '$lib/utils/post';
 	import type { SupabaseClient } from '@supabase/supabase-js';
 	import { onMount } from 'svelte';
+	import toast from 'svelte-french-toast';
 
 	export let supabase: SupabaseClient;
 	export let onClose = () => {};
@@ -22,6 +23,8 @@
 	let formError = '';
 
 	const handleDeleteComment = async (id: string) => {
+		if (!userId) return toast('You need to login to continue this action!');
+
 		loading = true;
 		await supabase.from('comments').delete().match({ id });
 
@@ -40,6 +43,8 @@
 	};
 
 	const addComment = async () => {
+		if (!userId) return toast('You need to login to continue this action!');
+
 		if (!content.trim()) return;
 		loading = true;
 

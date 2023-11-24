@@ -48,9 +48,11 @@
 
 <section>
 	<div class="container">
-		<div class="ml-auto px-5 mt-10 w-fit">
-			<Button on:click={() => (isCreateTweetModalOpen = true)}>Create +</Button>
-		</div>
+		{#if session?.user}
+			<div class="ml-auto px-5 mt-10 w-fit">
+				<Button on:click={() => (isCreateTweetModalOpen = true)}>Create +</Button>
+			</div>
+		{/if}
 
 		<div class="posts">
 			{#each posts as post}
@@ -68,7 +70,7 @@
 	</div>
 </section>
 
-{#if isCreateTweetModalOpen}
+{#if isCreateTweetModalOpen && session?.user}
 	<CreatePost onClose={handlePostCreate} {supabase} {userData} />
 {/if}
 

@@ -3,12 +3,13 @@
 	import '$lib/styles/posts.scss';
 	import '$lib/styles/profile.scss';
 
-	import { invalidate } from '$app/navigation';
+	import { afterNavigate, invalidate } from '$app/navigation';
 	import { Toaster } from 'svelte-french-toast';
 	import { onMount } from 'svelte';
 	import { isLoading } from '$lib/stores/index.js';
 	import LoadingScreenDefault from '$lib/pages/LoadingScreenDefault.svelte';
 	import clsx from 'clsx';
+	import { navigating } from '$app/stores';
 
 	export let data;
 
@@ -31,6 +32,10 @@
 	onMount(async () => {
 		userData = ((await supabase.from('users').select().eq('email', session?.user.email)).data ||
 			[])[0];
+	});
+
+	afterNavigate(async () => {
+		$isLoading = false;
 	});
 
 	let searchInput: string = '';

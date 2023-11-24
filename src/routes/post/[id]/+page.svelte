@@ -28,8 +28,8 @@
 		await supabase.from('posts').delete().match({
 			id: id
 		});
-		goto('/', { replaceState: true });
 		$isLoading = false;
+		goto('/', { replaceState: true });
 	};
 </script>
 
