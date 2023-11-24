@@ -77,11 +77,7 @@
 				<div class="flex justify-start">
 					<a href="/">
 						<span class="sr-only">Workflow</span>
-						<div
-							class="font-sans text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600"
-						>
-							Socialzilla
-						</div>
+						<div class="font-sans text-2xl font-extrabold text-white">Socialzilla</div>
 					</a>
 				</div>
 

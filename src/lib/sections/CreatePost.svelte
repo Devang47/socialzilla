@@ -28,6 +28,13 @@
 
 		formError = '';
 		if (file.files?.length) {
+			if (file.files[0].size > 2097152 * 2) {
+				toast('File is too big!!');
+				loading = false;
+				$isLoading = false;
+				return;
+			}
+
 			const { data: fileRes, error: fileErr } = await supabase.storage
 				.from('images')
 				.upload(`public/${Math.random()}.png`, file.files[0], {
