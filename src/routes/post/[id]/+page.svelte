@@ -33,6 +33,10 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Post | Socialzilla</title>
+</svelte:head>
+
 {#if postExists}
 	<section class="posts !mt-40 max-w-xl mx-auto">
 		{#await getAuthorDetails(supabase, postData.user_id) then data}

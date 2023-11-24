@@ -61,7 +61,7 @@
 </script>
 
 <svelte:head>
-	<title>User Management</title>
+	<title>Socialzilla</title>
 </svelte:head>
 
 {#if $isLoading}

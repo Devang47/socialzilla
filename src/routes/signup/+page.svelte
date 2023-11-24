@@ -38,7 +38,7 @@
 </script>
 
 <svelte:head>
-	<title>Login to Socialzilla</title>
+	<title>Signup to Socialzilla</title>
 </svelte:head>
 
 <section id="products" class="mt-12">

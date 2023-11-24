@@ -138,6 +138,10 @@
 	};
 </script>
 
+<svelte:head>
+	<title>{profile.username ?? 'User'} | Socialzilla</title>
+</svelte:head>
+
 {#if userExists}
 	<section id="user-data">
 		<div class="banner">
